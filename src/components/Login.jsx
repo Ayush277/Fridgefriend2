@@ -32,6 +32,12 @@ const Login = () => {
         }
     };
 
+    const handleTestLogin = () => {
+        setEmail("testuser@fridgefriend.com");
+        setPassword("Test@123");
+        setError("");
+    };
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-900 p-4">
             {/* Main Container */}
@@ -126,6 +132,15 @@ const Login = () => {
                                 ) : (
                                     "Sign In"
                                 )}
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={handleTestLogin}
+                                disabled={isLoading}
+                                className="w-full mt-3 py-3 px-4 bg-emerald-800/50 text-emerald-200 font-medium rounded-lg hover:bg-emerald-800/70 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-emerald-900 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed border border-emerald-700/50"
+                            >
+                                🧪 Use Test Account
                             </button>
                         </form>
 

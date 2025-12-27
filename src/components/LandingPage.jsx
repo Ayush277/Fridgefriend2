@@ -61,7 +61,7 @@ const LandingPage = () => {
             <FaLeaf className="text-6xl text-green-500" />
           </motion.div>
           <h1 className="text-6xl font-bold text-green-500 mb-6 leading-tight">
-          Smarter Food ,Less Waste<br /> Nourishly
+          Smarter Food ,Less Waste<br /> FridgeFriend
           </h1>
           <p className="text-xl text-green-200 mb-8 max-w-2xl mx-auto">
             Reinventing fridge and pantry management for a sustainable India.

@@ -71,15 +71,13 @@ const Signup = () => {
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-teal-500/20 rounded-full blur-3xl"></div>
 
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">
-                Nourishly
-              </h1>
-              <p className="text-emerald-200">Your Smart Kitchen Assistant</p>
-            </div>
-
-            <div className="mb-8 grid grid-cols-3 gap-4">
+        <div className="relative z-10">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">
+              FridgeFriend
+            </h1>
+            <p className="text-emerald-200">Your Smart Kitchen Assistant</p>
+          </div>            <div className="mb-8 grid grid-cols-3 gap-4">
               <div className="bg-emerald-800/30 rounded-lg p-3 text-center border border-emerald-700/30">
                 <span className="text-2xl mb-1">🤖</span>
                 <p className="text-xs text-emerald-200">AI Tracking</p>
