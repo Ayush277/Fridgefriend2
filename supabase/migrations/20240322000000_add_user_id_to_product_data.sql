@@ -1,3 +1,18 @@
+-- Create Product Data table
+CREATE TABLE IF NOT EXISTS "Product Data" (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    name TEXT NOT NULL,
+    category TEXT,
+    quantity INTEGER,
+    unit TEXT,
+    expiry_date DATE,
+    purchase_date DATE,
+    location TEXT,
+    notes TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
 -- Add user_id column to Product Data table
 ALTER TABLE "Product Data" ADD COLUMN user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE;
 
@@ -26,4 +41,4 @@ CREATE POLICY "Users can update their own products"
 CREATE POLICY "Users can delete their own products"
     ON "Product Data"
     FOR DELETE
-    USING (auth.uid() = user_id); 
+    USING (auth.uid() = user_id);
