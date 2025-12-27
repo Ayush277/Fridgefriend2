@@ -1,9 +1,33 @@
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaBell, FaHandshake, FaLeaf, FaMicrophone } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { supabase } from './supabase';
 import video from '../assets/video2.mp4';
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleTestLogin = async () => {
+    setIsLoading(true);
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: 'testuser@fridgefriend.com',
+        password: 'Test@123',
+      });
+
+      if (error) {
+        alert('Test login failed: ' + error.message);
+      } else {
+        navigate('/dashboard');
+      }
+    } catch (err) {
+      alert('An error occurred during test login');
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -41,18 +65,32 @@ const LandingPage = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-[#0a192f]/80 backdrop-blur-sm" />
-      </div>
-
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <motion.div
-            initial={{ scale: 0.8 }}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/register"
+                className="inline-flex items-center bg-green-400 text-[#0a192f] px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-300 transition-colors shadow-lg hover:shadow-xl"
+              >
+                Get Started
+                <FaArrowRight className="ml-2" />
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <button
+                onClick={handleTestLogin}
+                disabled={isLoading}
+                className="inline-flex items-center bg-emerald-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-emerald-500 transition-colors shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? '🔄 Logging in...' : '🧪 Try Test Account'}
+              </button>
+            </motion.div>
+          </div>scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
             className="inline-block mb-6"
