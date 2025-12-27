@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLeaf, FaBell, FaMicrophone, FaHandshake, FaChartLine, FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaBell, FaHandshake, FaLeaf, FaMicrophone } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import video from '../assets/video2.mp4'
+import video from '../assets/video2.mp4';
 
 const LandingPage = () => {
   const fadeInUp = {

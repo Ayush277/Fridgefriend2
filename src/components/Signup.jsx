@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "./supabase";
-import { useNavigate, Link } from "react-router-dom";
 
 const Signup = () => {
   const [name, setName] = useState("");
